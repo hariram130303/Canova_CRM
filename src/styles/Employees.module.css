@@ -1,0 +1,432 @@
+.page {
+  display: flex;
+}
+
+.main {
+  flex: 1;
+  background: #fff;
+}
+
+.infoWrapper{
+  position: relative;
+  display: inline-block;
+  padding: 20px;
+}
+.wrapper
+{
+  position: relative;
+  display: inline-block;
+  padding: 20px;
+  width: 100%;
+}
+/* TOP BAR */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0 16px;
+}
+
+/* BREADCRUMB */
+.breadcrumb {
+  font-size: 15px;
+  color: #6b7280;
+  margin-left: 10px;
+}
+
+.breadcrumb span {
+  margin: 0 6px;
+}
+
+/* ADD EMPLOYEES BUTTON */
+.addBtn {
+  background: #D9D9D9;
+  color: #374151;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.addBtn:hover {
+  background: #c7cbd1;
+}
+
+/* CARD */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 10px 0 0;
+  border: 1px solid #B1B1B1;
+}
+
+/* HEADER GRID */
+.tableHeader {
+  display: grid;
+  grid-template-columns: 40px 2.5fr 1.5fr 1fr 1fr 1fr 40px;
+  font-size: 13px;
+  color: #6b7280;
+  padding: 6px 6px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.headerCheckbox
+{
+  margin-left: 26px;
+}
+
+.headerItem
+{
+  padding-left: 22px;
+}
+
+/* ROW */
+.row {
+  display: grid;
+  grid-template-columns: 40px 2.5fr 1.5fr 1fr 1fr 1fr 40px;
+  align-items: center;
+  padding: 14px 22px;
+  border-bottom: 2px solid #EAECF0;
+}
+
+.row:last-child {
+
+  border-bottom: none;
+}
+
+.row:hover {
+  background: #F4F4F4;
+}
+
+/* NAME CELL */
+.nameCell {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #fde7d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #a0522d;
+}
+
+.name {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.email {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* EMP ID BADGE */
+.badge {
+  background: #F5F6F7;
+  color: #091E42;
+  font-size: 11px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+/* STATUS */
+.active,
+.inactive {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  padding: 4px 10px;
+  margin-left: 22px;
+  border-radius: 14px;
+  text-transform: capitalize;
+}
+
+/* Active */
+.active {
+  background: #ECFDF3;
+  color: #027A48;
+}
+
+.active::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #12B76A;
+}
+
+/* Inactive */
+.inactive {
+  background: #FFF2EA;
+  color: #F15046;
+}
+
+.inactive::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #FFF2EA;
+}
+
+
+/* MENU */
+.menuIcon {
+  color: #344054;
+  cursor: pointer;
+}
+
+.menuWrapper {
+  position: relative;
+}
+
+.menuCard {
+  position: absolute;
+  right: 40px;
+  top: 10px;
+  width: 160px;
+  height: 100px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 6px;
+  border: 1px solid #b7b6b6;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+  display: flex;
+  flex-direction: column;
+  z-index: 15;
+}
+
+.menuRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 10px;
+  border-radius: 14px;
+  font-size: 15px;
+  color: #032b2a;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.menuRow:hover ,.deleteRow:hover{
+  background: #E6E6E6;
+}
+
+.iconBox {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+}
+
+.pink {
+  background: #FFEFFD;
+}
+
+.red {
+  background: #FFEFFD;
+}
+
+.leads
+{
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 18px 0 10px;
+}
+
+.pagination button {
+  border: 1px solid #d1d5db;
+  background: white;
+  padding: 6px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.pageActive {
+  background: #111827;
+  color: white;
+}
+
+/* OVERLAY */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 220px;              /* 👈 SAME AS SIDEBAR WIDTH */
+  width: calc(100% - 220px);
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* MODAL */
+.modal {
+  width: 90%;
+  max-width: 1000px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  height: 550px;
+}
+
+/* HEADER */
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.modalHeader h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* FORM */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.field label {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.field input,
+.field select {
+  width: 45%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #3E3E3E;
+  font-size: 13px;
+}
+
+/* LANGUAGE ROW + TOOLTIP */
+.langRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tooltip {
+  font-size: 11px;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* FOOTER */
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 130px;
+}
+
+.saveBtn {
+  background: #D9D9D9;
+  color: #636060;
+  border: none;
+  padding: 9px 50px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.saveBtnActive {
+  background: #111827;
+  color: white;
+  cursor: pointer;
+}
+/* container around select + icon */
+.inputWithIcon {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* put icon inside input to the right */
+.inputWithIcon .infoIcon {
+  position: absolute;
+  top: 50%;
+  right: 52%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  cursor: pointer;
+
+}
+
+/* tooltip */
+.langTooltip {
+  position: absolute;
+  right:27.5%;
+  top: 50%;
+  background: #F3F3F3;
+  padding: 8px 12px;
+  border-radius: 10px;
+  white-space: nowrap;
+  font-size: 12px;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .1);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: .18s ease;
+}
+
+/* show tooltip on hover */
+.inputWithIcon:hover .langTooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.deleteBtn {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.deleteBtn:hover {
+  background: #fecaca;
+}

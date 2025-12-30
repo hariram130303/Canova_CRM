@@ -1,0 +1,262 @@
+.appRoot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  background: #000; /* black outer background like Home */
+}
+
+.phone {
+  width: 380px;
+  height: 600px;
+  background: white;
+  border-radius: 10px;
+  overflow-y: auto;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+/* HEADER — like Home */
+.header {
+  background: #2051e5;
+  color: white;
+  padding: 18px;
+  border-radius: 0 0 18px 18px;
+  height: 110px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.crm {
+  color: #efff4d;
+}
+
+.backRow {
+  margin-top: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.backArrow {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.ScheduleTitle {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.content {
+  padding: 12px;
+}
+
+/* SEARCH ROW */
+.searchRow {
+  display: flex;
+  gap: 10px;
+  padding: 10px 14px;
+  position: relative;
+}
+
+.searchBox {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: #d9d9d9;
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+.searchBox input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  outline: none;
+}
+
+.filterBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+/* FILTER POPUP */
+.filterPopup {
+  position: absolute;
+  right: 8px;
+  top: 48px;
+  width: 150px;
+  background: white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.popupTitle {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.filterPopup select {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.saveBtn {
+  width: 100%;
+  padding: 8px 0;
+  border-radius: 14px;
+  border: none;
+  background: #111;
+  color: white;
+}
+
+/* LIST */
+.list {
+  padding: 10px 14px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* CARD */
+.card {
+  background: #f3f3f3;
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.active {
+  background: #1e62ff;
+  color: white;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.tag {
+  font-weight: 700;
+}
+
+.phone {
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+.mode {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.person {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.person img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #e5e5e5;
+  z-index: 100;
+}
+
+.scheduleCard {
+  background: #F6F6F5;
+  border-radius: 18px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.dateTitle
+{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.from {
+  color: #000;
+}
+
+.dateTitle {
+  color: #111;
+}
+
+.cardRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.number {
+  color: #222;
+}
+
+
+.rowIcon {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  font-size: 13px;
+  margin-left: 3px;
+}
+
+.rowIcon span
+{
+    font-weight: 500;
+}
+
+.personRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.personRow img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.personRow span{
+    font-weight: 500;
+}

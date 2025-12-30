@@ -1,0 +1,125 @@
+/* ===== OUTER WRAPPER (center screen like phone) ===== */
+.appRoot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  background: #000;          /* black outer background like Home */
+}
+
+.phone {
+  width: 380px;
+  height: 600px;
+  background: #FCFCFC;
+  border-radius: 10px;
+  overflow-y: auto;
+  box-shadow: 0 20px 45px rgba(0,0,0,.25);
+}
+
+/* HEADER — like Home */
+.header {
+  background: #2051E5;
+  color: white;
+  padding: 18px;
+  border-radius: 0 0 18px 18px;
+  height: 110px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.crm {
+  color: #EFFF4D;
+}
+
+.backRow {
+  margin-top: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.backArrow {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.profileTitle {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.backArrow {
+  font-size: 22px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.section
+{
+  padding: 26px;
+}
+
+.form
+{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form label
+{
+    font-size: 12px;
+    color: #5E5E5E;
+}
+
+.form input, .form textarea
+{
+    padding: 8px 12px;
+    color: #393939;
+    background-color: #FCFCFC;
+    border: 1px solid #3E3E3E;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: inherit;
+}
+
+.form textarea
+{
+    resize: vertical;
+    min-height: 80px;
+}
+
+.saveBtn
+{
+    margin-top: 45px;
+    padding: 8px 40px;
+    background: #2051E5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+.logoutBtn
+{
+    margin-top: 14px;
+    margin-bottom: 55px;
+    padding: 8px 40px;
+    background: #E53420;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+
+}

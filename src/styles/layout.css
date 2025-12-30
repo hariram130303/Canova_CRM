@@ -1,0 +1,77 @@
+/* ===== MAIN LAYOUT ===== */
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+/* ===== CONTENT AREA ===== */
+.content {
+  flex: 1;
+  padding: 24px 28px;
+  background-color: #fff;
+  overflow-y: auto;
+}
+
+/* ===== PAGE HEADER (Breadcrumb + Search) ===== */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: #666;
+}
+
+.breadcrumb span {
+  margin: 0 6px;
+}
+
+/* ===== SEARCH BAR ===== */
+.search-container {
+  display: flex;
+  align-items: center;
+  background: #eee;
+  padding: 6px 12px;
+  border-radius: 20px;
+  width: 260px;
+}
+
+.search-container input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* ===== PAGE WRAPPER ===== */
+.page-wrapper {
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.actions button {
+  background: #d9d9d9;
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+/* ===== FOOTER PAGINATION AREA ===== */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+}

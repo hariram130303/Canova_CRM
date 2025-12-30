@@ -1,0 +1,157 @@
+.page {
+  display: flex;
+  background: #fafafa;
+}
+
+.pageContent {
+  flex: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  padding: 10px 26px;
+}
+
+/* TOP BAR */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0;
+}
+
+/* BREADCRUMB */
+.breadcrumb {
+  font-size: 18px;
+  color: #6b7280;
+  margin-left: 10px;
+}
+
+.breadcrumb span {
+  margin: 0 6px;
+}
+
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #B1B1B1;
+  border-radius: 20px;
+  padding: 14px 18px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 125px;
+}
+
+.card b {
+  font-size: 20px;
+}
+
+/* Middle section */
+.middleGrid {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 25px;
+}
+
+.chartBox {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+
+.chartContainer {
+  margin-top: 8px;
+}
+
+.recharts-rectangle {
+  fill: #d9d9d9;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+.recharts-cartesian-grid-horizontal line {
+  stroke: #dcdcdc;
+  opacity: 0.5;
+}
+
+
+.chartBox,
+.activityBox {
+  background: #fff;
+  border: 1px solid #B1B1B1;
+  border-radius: 20px;
+  padding: 18px;
+  height: 300px;
+}
+
+.chartBox h4,
+.activityBox h4 {
+  margin-bottom: 14px;
+  font-size: 15px;
+}
+
+
+.activityBox {
+  margin-left: 20px;}
+/* Activity feed */
+.activityBox ul {
+  margin-top: 10px;
+  padding-left: 16px;
+}
+
+.activityBox li {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+/* Table */
+.tableBox {
+  margin-top: 22px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.tableBox table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableBox thead {
+  background: #f8f8f8;
+}
+
+.tableBox th,
+.tableBox td {
+  padding: 14px 12px;
+  font-size: 14px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.activeDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #2ecc71;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+

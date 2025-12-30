@@ -1,0 +1,235 @@
+.card {
+  background: #f4f4f6;
+  border-radius: 18px;
+  padding: 14px 16px 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* left color strip */
+.strip {
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 6px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.hot { background: #ff3b30; }
+.warm { background: #fbbc04; }
+.cold { background: #4a90e2; }
+.scheduled { background: #7b3fe4; }
+
+/* top info row */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.email {
+  font-size: 12px;
+  color: #6c7282;
+}
+
+/* status circle */
+.statusCircle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ongoing {
+  border: 6px solid #ff8a00;
+  color: #000;
+}
+
+.closed {
+  border: 6px solid #4caf50;
+  color: #000;
+}
+
+/* date row */
+.dateRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #444;
+  font-size: 13px;
+}
+
+/* actions */
+.actions {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-end;
+  color: #1a58ff;
+}
+
+.actions svg {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* popup shared */
+.popup {
+  position: absolute;
+  top: 150px;
+  right: 10px;
+  background: #ffffff;
+  padding: 12px 14px;
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(0,0,0,.18);
+  width: 150px;
+  z-index: 20;
+}
+
+.popupTitle {
+  text-align: center;
+  font-weight: 500;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.popupType {
+  position: absolute;
+  top: 150px;
+  right: 90px;
+  background: #ffffff;
+  padding: 8px 8px;
+  border-radius: 12px;
+  border: 1px solid #b1b1b1;
+  box-shadow: 0 12px 35px rgba(0,0,0,.18);
+  width: 70px;
+  z-index: 20;
+
+} 
+
+/* TYPE TAG BUTTONS */
+.tag {
+  width: 50px;
+  color: white;
+  border-radius: 8px;
+  padding: 6px 0;
+  margin: 6px 0;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.hot {
+  background: #ff7a00;
+}
+
+.warm {
+  background: #ffd400;
+}
+
+.cold {
+  background: #00e6ff;
+}
+
+.popupDate
+{
+  position: absolute;
+  top: 140px;
+  right: 55px;
+  background: #ffffff;
+  padding: 6px 8px;
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(0,0,0,.18);
+  width: 150px;
+  z-index: 20;
+}
+
+.popupDate label {
+  font-size: 12px;
+  margin-top: 6px;
+  display: block;
+}
+
+.popupDate input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #E0E0E0;
+  margin-top: 4px;
+}
+
+.popupDate .saveBtn {
+  margin-top: 10px;
+  width: 60%;
+  padding: 8px 30px;
+  border-radius: 20px;
+  border: none;
+  background: #363636;
+  color: #FAFBFC;
+  font-size: 9px;
+  cursor: pointer;
+  margin-left: 25px;
+}
+
+/* STATUS */
+.popupStatus {
+  position: absolute;
+  top: 145px;
+  right: 20px;
+  background: #ffffff;
+  padding: 12px 14px;
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(0,0,0,.18);
+  width: 150px;
+  z-index: 20;
+}
+
+
+/* tooltip */
+.statusHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.tooltipWrap {
+  position: relative;
+}
+
+.infoIcon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #aaa;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: absolute;
+  background: #f3f3f3;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 11px;
+  white-space: nowrap;
+  border: 1px solid #ddd;
+  opacity: 0;
+  pointer-events: none;
+  transition: .15s;
+}
+
+.tooltipWrap:hover .tooltip {
+  opacity: 1;
+}
