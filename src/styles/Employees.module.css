@@ -119,21 +119,27 @@
   color: #a0522d;
 }
 
+.ename
+{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
 .name {
-  font-size: 13px;
   font-weight: 500;
 }
 
 .email {
-  font-size: 11px;
-  color: #6b7280;
+  color: #6B788E;
 }
 
 /* EMP ID BADGE */
 .badge {
   background: #F5F6F7;
   color: #091E42;
-  font-size: 11px;
+  font-size: 14px;
   padding: 6px 10px;
   border-radius: 12px;
   width: fit-content;

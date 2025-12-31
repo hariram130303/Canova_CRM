@@ -63,6 +63,7 @@
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 25px;
+  margin-bottom: 20px;
 }
 
 .chartBox {
@@ -119,39 +120,87 @@
   font-size: 14px;
 }
 
-/* Table */
-.tableBox {
-  margin-top: 22px;
-  background: #fff;
-  border: 1px solid #e8e8e8;
-  border-radius: 10px;
-  padding: 0;
-  overflow: hidden;
+/* table styes */
+/* HEADER GRID */
+.tableHeader {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 1fr 1fr;
+  font-size: 13px;
+  color: #6b7280;
+  padding: 6px 6px;
+  border-bottom: 2px solid #e5e7eb;
 }
 
-.tableBox table {
-  width: 100%;
-  border-collapse: collapse;
+/* .headerCheckbox
+{
+  margin-left: 26px;
+} */
+
+.headerItem
+{
+  color: #42526D;
+  padding-left: 20px;
 }
 
-.tableBox thead {
-  background: #f8f8f8;
+/* ROW */
+.row {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 1fr 1fr;
+  align-items: center;
+  padding: 14px 22px;
+  border-bottom: 2px solid #EAECF0;
 }
 
-.tableBox th,
-.tableBox td {
-  padding: 14px 12px;
-  font-size: 14px;
-  text-align: left;
-  border-bottom: 1px solid #f0f0f0;
+.row:last-child {
+
+  border-bottom: none;
 }
 
-.activeDot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background: #2ecc71;
+.row:hover {
+  background: #F4F4F4;
+}
+
+/* NAME CELL */
+.nameCell {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  margin-right: 6px;
+  background: #fde7d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #a0522d;
 }
 
+.ename
+{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+}
+.name {
+  font-weight: bold;
+}
+
+.email {
+  color: #6B788E;
+}
+
+
+.badge {
+  background: #F5F6F7;
+  color: #091E42;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 14px;
+  width: fit-content;
+}

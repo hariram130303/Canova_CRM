@@ -175,7 +175,7 @@ export default function Employees() {
                     {initials(emp.firstName, emp.lastName)}
                   </div>
 
-                  <div>
+                  <div className={styles.ename}>
                     <div className={styles.name}>
                       {emp.firstName} {emp.lastName}
                     </div>
