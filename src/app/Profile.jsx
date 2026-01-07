@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AppNav from "./AppNav";
 import styles from "./styles/Profile.module.css";
 import { api } from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const [form, setForm] = useState({
@@ -11,6 +12,8 @@ const Profile = () => {
     password: "",
     confirmPassword: ""
   });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     api.get("/employee/profile").then(res => {
@@ -24,20 +27,23 @@ const Profile = () => {
   }, []);
 
   const handleSave = async () => {
-    if (form.password && form.password !== form.confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
+  if (form.password && form.password !== form.confirmPassword) {
+    alert("Passwords do not match");
+    return;
+  }
 
-    await api.put("/employee/profile", {
-      firstName: form.firstName,
-      lastName: form.lastName,
-      email: form.email,
-      password: form.password || undefined
-    });
+  await api.put("/employee/profile", {
+    firstName: form.firstName,
+    lastName: form.lastName,
+    email: form.email,
+    password: form.password || undefined
+  });
 
-    alert("Profile updated");
-  };
+  alert("Profile updated successfully\nPlease login again.");
+
+  localStorage.removeItem("employeeToken");
+  window.location.href = "/app/login";
+};
 
   
 
@@ -50,7 +56,13 @@ const Profile = () => {
           </div>
 
           <div className={styles.backRow}>
-            <span className={styles.backArrow}>‹</span>
+            <span
+  className={styles.backArrow}
+  onClick={() => navigate(-1)}
+>
+  ‹
+</span>
+
             <span className={styles.profileTitle}>Profile</span>
           </div>
         </div>

@@ -8,6 +8,11 @@
   font-family: Inter, system-ui, sans-serif;
 }
 
+.pagination span {
+  padding: 6px 10px;
+  color: #6b7280;
+}
+
 /* PAGE BUTTONS */
 .pagination button {
   border: 1px solid #e5e7eb;

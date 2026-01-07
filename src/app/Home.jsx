@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import styles from "./styles/Home.module.css";
 import AppNav from "./AppNav";
+import { api } from "../services/api";
 
 export default function Home() {
   const [checkIn, setCheckIn] = useState("--:--");
   const [checkOut, setCheckOut] = useState("--:--");
+  const [checkedIn, setCheckedIn] = useState(false);
+
   const [onBreak, setOnBreak] = useState(false);
+  const [employee, setEmployee] = useState(null);
 
   const [breakLogs, setBreakLogs] = useState([
     { start: "01:10 PM", end: "02:00 PM", date: "07/04/25" },
@@ -20,19 +24,32 @@ export default function Home() {
   ]);
 
   useEffect(() => {
-    const now = new Date();
-    setCheckIn(
-      now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
-    );
-    setCheckOut("4:55 PM");
+    api.get("/employee/profile").then(res => {
+      setEmployee(res.data);
+    });
   }, []);
+
+  const handleCheck = () => {
+    const now = new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    if (!checkedIn) {
+      setCheckIn(now);
+    } else {
+      setCheckOut(now);
+    }
+
+    setCheckedIn(!checkedIn);
+  };
 
   const toggleBreak = () => {
     if (!onBreak) {
       setOnBreak(true);
       const now = new Date();
 
-      setBreakLogs((prev) => [
+      setBreakLogs(prev => [
         {
           start: now.toLocaleTimeString([], {
             hour: "2-digit",
@@ -46,7 +63,7 @@ export default function Home() {
     } else {
       setOnBreak(false);
 
-      setBreakLogs((prev) => {
+      setBreakLogs(prev => {
         const updated = [...prev];
         updated[0].end = new Date().toLocaleTimeString([], {
           hour: "2-digit",
@@ -66,8 +83,8 @@ export default function Home() {
           </div>
 
           <div className={styles.greeting}>
-            Good Morning <br />
-            <b>Rajesh Mehta</b>
+            <p>Good Morning <br /></p>
+                {employee ? `${employee.firstName} ${employee.lastName}` : "..."}
           </div>
         </div>
 
@@ -81,13 +98,20 @@ export default function Home() {
                 <br />
                 {checkIn}
               </div>
+
               <div>
                 Check Out
                 <br />
                 {checkOut}
               </div>
 
-              <div className={`${styles.indicator} ${styles.green}`} />
+              <div
+                className={`${styles.indicator} ${
+                  checkedIn ? styles.green : styles.red
+                }`}
+                onClick={handleCheck}
+                style={{ cursor: "pointer" }}
+              />
             </div>
           </div>
 
@@ -101,6 +125,7 @@ export default function Home() {
                 <br />
                 {breakLogs[0].start}
               </div>
+
               <div>
                 Ended
                 <br />
@@ -147,6 +172,7 @@ export default function Home() {
             ))}
           </div>
         </div>
+
         <AppNav />
       </div>
     </div>

@@ -190,6 +190,7 @@
 }
 
 .scheduleCard {
+  height: 170px;
   background: #F6F6F5;
   border-radius: 18px;
   padding: 14px 16px;
@@ -201,22 +202,25 @@
 .cardHeader {
   display: flex;
   justify-content: space-between;
-  font-weight: 600;
   font-size: 14px;
+  font-weight: 500;
+}
+
+.scheduleCard:hover {
+  cursor: pointer;
+  color: #fff;
+  background: #2051E5;
 }
 
 .dateTitle
 {
     font-size: 16px;
     font-weight: 600;
+    margin-bottom: 5px;
 }
-
-.from {
-  color: #000;
-}
-
-.dateTitle {
-  color: #111;
+.from{
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .cardRow {
@@ -224,10 +228,7 @@
   justify-content: space-between;
   font-size: 14px;
   font-weight: 500;
-}
-
-.number {
-  color: #222;
+  margin-top: 5px;
 }
 
 
@@ -237,6 +238,8 @@
   gap: 17px;
   font-size: 13px;
   margin-left: 3px;
+  margin-top: 15px;
+  margin-bottom: 3px;
 }
 
 .rowIcon span
@@ -250,11 +253,11 @@
   gap: 8px;
   font-size: 14px;
 }
-
-.personRow img {
+.avatarImg {
   width: 24px;
   height: 24px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .personRow span{

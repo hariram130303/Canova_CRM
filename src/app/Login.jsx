@@ -18,9 +18,14 @@ const handleLogin = async () => {
 
     // save token
     localStorage.setItem("employeeToken", res.data.token);
+    if (res.data.employee.firstLogin) {
+      navigate("/app/profile");
+    }
+else
+{
+      navigate("/app/home");
 
-    navigate("/app/home");
-  } catch (err) {
+}  } catch (err) {
     alert("Invalid credentials");
   }
 };
@@ -60,15 +65,15 @@ const styles = {
   wrapper: {
     height: "100vh",
     width: "100%",
-    background: "#f4f4f4",
+    background: "#000",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
 
   phone: {
-    width: "380px",         // mobile width
-    height: "680px",        // mobile height
+    width: "350px",         // mobile width
+    height: "600px",        // mobile height
     background: "#1F55FF",
     borderRadius: "18px",
     display: "flex",

@@ -1,24 +1,27 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 import AppNav from "./AppNav";
 import LeadCardMobile from "./LeadCardMobile";
 import styles from "./styles/LeadsMobile.module.css";
-
+  
 export default function LeadsMobile() {
   const [leads, setLeads] = useState([]);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    async function loadLeads() {
-      try {
-        const res = await api.get("/admin/leads");
-        setLeads(res.data);
-      } catch (err) {
-        console.error(err);
-      }
+useEffect(() => {
+  async function loadLeads() {
+    try {
+      const res = await api.get("/admin/leads");
+      setLeads(res.data.data || []);   // <-- IMPORTANT
+    } catch (err) {
+      console.error(err);
     }
+  }
 
-    loadLeads();
-  }, []);
+  loadLeads();
+}, []);
+
 
   return (
     <div className={styles.appRoot}>
@@ -29,7 +32,13 @@ export default function LeadsMobile() {
           </div>
 
           <div className={styles.backRow}>
-            <span className={styles.backArrow}>‹</span>
+            <span
+  className={styles.backArrow}
+  onClick={() => navigate("/app/home")}
+>
+  ‹
+</span>
+
             <span className={styles.leadsTitle}>Leads</span>
           </div>
         </div>
@@ -42,6 +51,7 @@ export default function LeadsMobile() {
           <div className={styles.list}>
             {leads.map((lead) => (
               <LeadCardMobile
+                key={lead._id}
                 lead={lead}
                 onUpdate={(updated) => {
                   setLeads((prev) =>

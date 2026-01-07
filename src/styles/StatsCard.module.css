@@ -1,0 +1,47 @@
+.card {
+  background: #ffffff;
+  border: 1px solid #B1B1B1;
+  border-radius: 14px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+
+}
+
+.card b{
+  color: #000000;
+  margin-left: 50px;
+}
+
+.iconRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.iconCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ECECEC;
+  display: grid;
+  place-items: center;
+  color: #5d5d5d;
+  font-size: 16px;
+}
+
+.label {
+  color: #616161;
+  font-size: 15px;
+}
+
+.count {
+  margin-top: 6px;
+  font-size: 18px;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

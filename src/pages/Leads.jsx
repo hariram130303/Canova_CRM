@@ -8,6 +8,8 @@ import { MdNavigateNext } from "react-icons/md";
 import Pagination from "../components/Pagination";
 
 export default function Leads() {
+  const [page, setPage] = useState(1);
+  const PER_PAGE = 8;
   const [leads, setLeads] = useState([]);
   const [search, setSearch] = useState("");
 
@@ -18,6 +20,11 @@ export default function Leads() {
   const [uploading, setUploading] = useState(false);
 
   const [progress, setProgress] = useState(0);
+
+  const [meta, setMeta] = useState({
+    total: 0,
+    totalPages: 1,
+  });
 
   /* ---------- MANUAL FORM STATE ---------- */
   const [manualForm, setManualForm] = useState({
@@ -33,26 +40,32 @@ export default function Leads() {
   });
 
   /* ---------- LOAD LEADS ---------- */
+  async function refreshLeads(p = 1) {
+    const res = await api.get(`/admin/leads?page=${p}&limit=8`);
 
-  
-  async function refreshLeads() {
-    const res = await api.get("/admin/leads");
-    setLeads(res.data);
-}
+    setLeads(res.data.data);
+    setPage(p);
 
-useEffect(() => {
-  const load = async () => {
-    await refreshLeads();
-  };
+    setMeta({
+      total: res.data.total,
+      totalPages: res.data.totalPages,
+    });
+  }
 
-  load();
-}, []);
+  useEffect(() => {
+    const load = async () => {
+      await refreshLeads();
+    };
 
+    load();
+  }, []);
 
-  const filtered = leads.filter((lead) =>
-    (lead.name || "").toLowerCase().includes(search.toLowerCase())
-  );
-  
+ const filtered = Array.isArray(leads)
+  ? leads.filter((lead) =>
+      (lead.name || "").toLowerCase().includes(search.toLowerCase())
+    )
+  : [];
+
 
   /* ---------- MANUAL HANDLERS ---------- */
   const handleManualChange = (e) => {
@@ -87,7 +100,7 @@ useEffect(() => {
     });
 
     const res = await api.get("/admin/leads");
-    setLeads(res.data);
+    setLeads(res.data.data);
   };
 
   /* ---------- CSV UPLOAD ---------- */
@@ -117,18 +130,15 @@ useEffect(() => {
       }, 400);
 
       const res = await api.get("/admin/leads");
-      setLeads(res.data);
+      console.log("AFTER CSV:", res.data);
+      setLeads(res.data.data);
     } catch {
       setUploading(false);
       alert("CSV upload failed");
     }
   };
 
-
-
-  
   return (
-    
     <div className={styles.page}>
       <Sidebar />
 
@@ -183,14 +193,18 @@ useEffect(() => {
                 <div>{lead.source}</div>
                 <div>{lead.date || "-"}</div>
                 <div>{lead.location}</div>
-                <div>{lead.assignedTo?._id.slice(-11) || "-"}</div>
+                <div>{lead.assignedTo?._id.slice(-13) || "-"}</div>
                 <div>{lead.language}</div>
                 <div>{lead.status}</div>
                 <div>{lead.type}</div>
                 <div>{lead.scheduledDate || "-"}</div>
               </div>
             ))}
-            <Pagination/>
+            <Pagination
+              page={page}
+              totalPages={meta.totalPages}
+              onPageChange={(p) => refreshLeads(p)}
+            />
           </div>
         </div>
 
@@ -224,11 +238,11 @@ useEffect(() => {
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <g clip-path="url(#clip0_2_5906)">
+                      <g clipPath="url(#clip0_2_5906)">
                         <path
                           d="M33.4418 3.12109H14.1744V11.1111H37.5569V7.23451C37.5569 4.96616 35.7108 3.12109 33.4418 3.12109Z"
                           fill="#00181B"
-                          fill-opacity="0.25"
+                          fillOpacity="0.25"
                         />
                         <path
                           d="M22.5352 12.3403H0V4.92636C0 2.20972 2.21068 0 4.92828 0H12.1336C12.8497 0 13.5396 0.150925 14.1664 0.434509C15.0418 0.828964 15.7939 1.47913 16.3213 2.3286L22.5352 12.3403Z"
@@ -249,7 +263,7 @@ useEffect(() => {
                         <path
                           d="M32.0479 25.9395C32.0479 32.032 27.0918 36.9884 21 36.9884V14.8916C27.0918 14.8916 32.0479 19.8481 32.0479 25.9395Z"
                           fill="#00181B"
-                          fill-opacity="0.25"
+                          fillOpacity="0.25"
                         />
                         <path
                           d="M24.561 26.0758C24.3306 26.2709 24.0483 26.3661 23.7686 26.3661C23.4183 26.3661 23.0703 26.2177 22.8268 25.9287L22.2305 25.2218V29.8499C22.2305 30.5292 21.6793 31.0803 21 31.0803C20.3207 31.0803 19.7695 30.5292 19.7695 29.8499V25.2218L19.1732 25.9287C18.7342 26.4481 17.9584 26.5145 17.439 26.0758C16.9199 25.6378 16.8533 24.8617 17.2913 24.3422L19.7269 21.4548C20.0445 21.0793 20.5078 20.8633 21 20.8633C21.4922 20.8633 21.9555 21.0793 22.2731 21.4548L24.7087 24.3422C25.1467 24.8617 25.0801 25.6378 24.561 26.0758Z"
@@ -378,14 +392,14 @@ useEffect(() => {
                 </div>
 
                 <div className={styles.field}>
-  <label>Phone</label>
-  <input
-    name="phone"
-    value={manualForm.phone}
-    onChange={handleManualChange}
-    required
-  />
-</div>
+                  <label>Phone</label>
+                  <input
+                    name="phone"
+                    value={manualForm.phone}
+                    onChange={handleManualChange}
+                    required
+                  />
+                </div>
 
                 <div className={styles.field}>
                   <label>Email</label>

@@ -1,6 +1,7 @@
 // frontend/src/app/Schedule.jsx
 import { useState, useEffect } from "react";
 import { api } from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 import { FiSearch } from "react-icons/fi";
 import { PiSlidersHorizontalDuotone } from "react-icons/pi";
@@ -12,6 +13,22 @@ export default function Schedule() {
   const [leads, setLeads] = useState([]);
   const [openFilter, setOpenFilter] = useState(false);
   const [filter, setFilter] = useState("All");
+  const navigate = useNavigate();
+  const AVATARS = [
+    "https://i.pravatar.cc/150?img=1",
+    "https://i.pravatar.cc/150?img=2",
+    "https://i.pravatar.cc/150?img=3",
+    "https://i.pravatar.cc/150?img=4",
+    "https://i.pravatar.cc/150?img=5",
+    "https://i.pravatar.cc/150?img=6",
+  ];
+
+  function getAvatar(key = "") {
+    let sum = 0;
+    for (let i = 0; i < key.length; i++) sum += key.charCodeAt(i);
+
+    return AVATARS[sum % AVATARS.length];
+  }
 
   useEffect(() => {
     async function loadLeads() {
@@ -19,9 +36,7 @@ export default function Schedule() {
         const res = await api.get("/admin/leads");
 
         // only scheduled leads
-        const scheduled = res.data.filter(
-          (l) => l.type === "Scheduled" && l.scheduledDate
-        );
+        const scheduled = res.data.data.filter((l) => l.scheduledDate);
 
         setLeads(scheduled);
       } catch (err) {
@@ -59,7 +74,10 @@ export default function Schedule() {
           </div>
 
           <div className={styles.backRow}>
-            <span className={styles.backArrow}>‹</span>
+            <span className={styles.backArrow} onClick={() => navigate("/app/leads")}>
+              ‹
+            </span>
+
             <span className={styles.title}>Schedule</span>
           </div>
         </header>
@@ -141,7 +159,12 @@ export default function Schedule() {
                 </div>
 
                 <div className={styles.personRow}>
-                  <img src="https://i.pravatar.cc/40" alt="" />
+                  <img
+                    src={getAvatar(lead._id || lead.name)}
+                    alt={lead.name}
+                    className={styles.avatarImg}
+                  />
+
                   <span>{lead.name}</span>
                 </div>
               </div>

@@ -85,7 +85,7 @@
 .tableHeader {
   display: grid;
   grid-template-columns:
-    60px    1.4fr      2.2fr       1.2fr        1.2fr      1.3fr          1.4fr
+    60px    1.4fr      2.2fr       1.2fr        1.2fr      1.3fr          1.45fr
     1.2fr          1fr        1fr      1.5fr;
   padding: 12px 16px;
   font-size: 14px;
@@ -97,7 +97,7 @@
 .row {
   display: grid;
   grid-template-columns:
-    60px    1.4fr    2.2fr    1.2fr    1.2fr    1.3fr    1.4fr    1.2fr    1.2fr    1fr    1.2fr;
+    60px    1.4fr    2.2fr    1.2fr    1.2fr    1.3fr    1.6fr    1.2fr    1.2fr    1fr    1.2fr;
   align-items: center;
   padding: 10px 14px;
   background: #F7F7F7;

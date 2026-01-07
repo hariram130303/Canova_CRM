@@ -25,6 +25,7 @@
 
 .logo {
   font-weight: 700;
+  font-size: 13px;
 }
 
 .crm {
@@ -32,7 +33,20 @@
 }
 
 .greeting {
-  margin-top: 12px;
+  margin-top: 20px;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.greeting p {
+  font-size: 10px;
+  margin-bottom: 4px;
+  font-weight:lighter;
+} 
+
+.greeting b {
+  font-weight: 600;  
+  margin-top: 5px; 
 }
 
 /* section */
@@ -66,12 +80,13 @@
 
 .indicator {
   width: 18px;
-  height: 28px;
+  height: 35px;
   border-radius: 10px;
+  border: 3px solid #EEF2FF;
 }
 
 .green {
-  background: #22c55e;
+  background: #64E800;
 }
 
 .red {
@@ -138,4 +153,12 @@
 .navbar .iconText
 {
   text-decoration: none;
+}
+
+
+.statusText {
+  text-align: center;
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 6px;
 }

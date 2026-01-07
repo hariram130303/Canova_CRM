@@ -10,13 +10,16 @@
 .logo {
   font-size: 16px;
   font-weight: 700;
-  padding: 0 10px 16px;
-  margin-bottom: 8px;
+  padding: 10px 16px 16px;
+  margin-top: 20px;
+  margin-bottom: 35px;
+  border-bottom: 2px solid #AEAEAE;
   color: #111;
+  width: 100%;
 }
 
 .logo span {
-  color: #2563eb; /* 👈 blue CRM */
+  color: #2563eb;
 }
 
 
@@ -43,3 +46,4 @@
   background: #bdbdbd;
   color: #fff;
 }
+
